@@ -264,7 +264,7 @@ class Connection extends EventEmitter {
 	}
 }
 
-export default new Connection(new URL("wss://qna.janm.ml/ws/"))
+export default new Connection(new URL(process.env.REACT_APP_QNA_WS_URL || ""))
 
 interface DataNew {
 	type: "new"
