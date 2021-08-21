@@ -1,7 +1,7 @@
 main {
 	width: 50%;
 	max-width: MIN(90%, 100rem);
-	margin: 10rem auto;
+	margin: 10rem auto 2rem;
 
 	.info {
 		margin: 10rem 0;
@@ -112,5 +112,22 @@ main {
 		border-radius: 0.5rem;
 		padding: 0.5rem;
 		margin: 0.5rem;
+	}
+
+	.source {
+		display: flex;
+		justify-content: space-between;
+		border-top: 1px solid #000000;
+
+		p {
+			font-size: 1.5rem;
+			font-weight: 400;
+			font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont,
+				Segoe UI, Helvetica, sans-serif;
+		}
+
+		a {
+			color: #2080ee;
+		}
 	}
 }

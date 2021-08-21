@@ -138,6 +138,15 @@ const Home = ({
 					.
 				</i>
 			</div>
+			<div className="source">
+				<p>&copy;&nbsp;janm.ml</p>
+				<a href="https://github.com/janmml/qna">
+					<p>Web App source</p>
+				</a>
+				<a href="https://github.com/janmml/qna-relay">
+					<p>WebSocket server source</p>
+				</a>
+			</div>
 		</main>
 	)
 }
