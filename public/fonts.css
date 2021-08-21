@@ -3,6 +3,7 @@
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 400;
+	font-display: swap;
 	src: url("/fonts/roboto.woff2") format("woff2");
 }
 
@@ -10,6 +11,7 @@
 	font-family: "Roboto";
 	font-style: italic;
 	font-weight: 400;
+	font-display: swap;
 	src: url("/fonts/roboto-italic.woff2") format("woff2");
 }
 
@@ -17,6 +19,7 @@
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 700;
+	font-display: swap;
 	src: url("/fonts/roboto-bold.woff2") format("woff2");
 }
 
@@ -25,6 +28,7 @@
 	font-family: "Roboto Mono";
 	font-style: normal;
 	font-weight: 400;
+	font-display: swap;
 	src: url("/fonts/roboto-mono.woff2") format("woff2");
 }
 
@@ -33,6 +37,7 @@
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 400;
+	font-display: swap;
 	src: url("/fonts/inter.woff2") format("woff2");
 }
 
@@ -40,5 +45,6 @@
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 700;
+	font-display: swap;
 	src: url("/fonts/inter-bold.woff2") format("woff2");
 }
