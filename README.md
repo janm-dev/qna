@@ -1,6 +1,7 @@
 # qna.janm.ml
 
 Cross-screen QnA question queue.
+The WebSocket relay server is available on [https://github.com/janmml/qna-relay](https://github.com/janmml/qna-relay)
 
 ## Attribution
 
