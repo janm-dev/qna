@@ -1,0 +1,59 @@
+.question {
+	display: grid;
+	grid-template-columns: auto 4rem 4rem 4rem 4rem;
+	grid-template-rows: 1fr auto;
+	grid-template-areas: "author score up remove down" "text text text text text";
+	border: 0.2rem solid #000000;
+	border-radius: 1rem;
+	margin-bottom: 4rem;
+	padding: 0.5rem;
+
+	.author {
+		grid-area: author;
+		margin: 0.5rem 1rem;
+		min-width: 0;
+		text-overflow: ellipsis;
+	}
+
+	.score {
+		grid-area: score;
+		margin: auto;
+		min-width: 0;
+		text-overflow: ellipsis;
+	}
+
+	.text {
+		display: block;
+		grid-area: text;
+		overflow-wrap: break-word;
+		margin: 1rem;
+		min-width: 0;
+	}
+
+	.up {
+		grid-area: up;
+	}
+
+	.remove {
+		grid-area: remove;
+	}
+
+	.down {
+		grid-area: down;
+	}
+
+	button {
+		background: none;
+		border: none;
+		width: 3rem;
+		height: 3rem;
+		margin: auto 0.5rem;
+		cursor: pointer;
+
+		img {
+			height: 2rem;
+			width: 2rem;
+			vertical-align: top;
+		}
+	}
+}

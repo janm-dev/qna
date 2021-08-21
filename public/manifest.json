@@ -1,0 +1,39 @@
+{
+	"short_name": "qna",
+	"name": "QnA Question Queue",
+	"scope": "/",
+	"start_url": "/",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff",
+	"icons": [
+		{
+			"src": "/icon.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		},
+		{
+			"src": "/maskable-128.png",
+			"sizes": "128x128",
+			"purpose": "maskable any",
+			"type": "image/png"
+		},
+		{
+			"src": "/maskable-512.png",
+			"sizes": "512x512",
+			"purpose": "maskable any",
+			"type": "image/png"
+		},
+		{
+			"src": "/maskable-1024.png",
+			"sizes": "1024x1024",
+			"purpose": "maskable any",
+			"type": "image/png"
+		},
+		{
+			"src": "/icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		}
+	]
+}

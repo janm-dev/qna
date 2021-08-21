@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="icon" href="/icon.png" type="image/png" />
+		<link rel="apple-touch-icon" href="/apple-icon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="description" content="Cross-screen QnA question queue." />
+		<link rel="manifest" href="/manifest.json" />
+		<title>qna</title>
+		<link
+			rel="stylesheet"
+			href="/fonts.css"
+			media="print"
+			onload="this.media='all'"
+		/>
+		<script>
+			window.logger = {
+				enabled: location.search.includes("debug=true"),
+
+				debug: (data) => {
+					if (window.logger.enabled) {
+						console.debug(data)
+					}
+				},
+
+				info: (data) => {
+					if (window.logger.enabled) {
+						console.info(data)
+					}
+				},
+
+				log: (data) => {
+					if (window.logger.enabled) {
+						console.log(data)
+					}
+				},
+
+				warn: (data) => {
+					if (window.logger.enabled) {
+						console.warn(data)
+					}
+				},
+
+				error: (data) => {
+					console.error(data)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root"></div>
+	</body>
+</html>
