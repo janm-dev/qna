@@ -2,7 +2,7 @@ import { Question, QuestionInfo } from "./Question"
 import connection from "./connection"
 import { useEffect } from "react"
 import { ID } from "./index"
-import "./QuestionQueue.scss"
+import styles from "./QuestionQueue.module.scss"
 
 export const QuestionQueue = ({
 	questions,
@@ -64,7 +64,7 @@ export const QuestionQueue = ({
 	}
 
 	return (
-		<div className="queue">
+		<div className={styles.queue}>
 			{
 				// Display the questions in decending order of points
 				questions

@@ -1,8 +1,8 @@
-.question {
+.form {
 	display: grid;
-	grid-template-columns: auto 4rem 4rem 4rem 4rem;
+	grid-template-columns: auto 6rem 4rem 4rem;
 	grid-template-rows: 1fr auto;
-	grid-template-areas: "author score up remove down" "text text text text text";
+	grid-template-areas: "author score clear send" "text text text text";
 	border: 0.2rem solid #000000;
 	border-radius: 1rem;
 	margin-bottom: 4rem;
@@ -18,8 +18,7 @@
 	.score {
 		grid-area: score;
 		margin: auto;
-		min-width: 0;
-		text-overflow: ellipsis;
+		width: 4rem;
 	}
 
 	.text {
@@ -30,30 +29,38 @@
 		min-width: 0;
 	}
 
-	.up {
-		grid-area: up;
+	.clear {
+		grid-area: clear;
 	}
 
-	.remove {
-		grid-area: remove;
+	.send {
+		grid-area: send;
 	}
 
-	.down {
-		grid-area: down;
+	.text {
+		height: 16rem;
 	}
 
-	button {
+	.button {
 		background: none;
 		border: none;
 		width: 3rem;
 		height: 3rem;
 		margin: auto 0.5rem;
+		padding: 0.5rem;
 		cursor: pointer;
 
-		img {
+		.buttonimg {
 			height: 2rem;
 			width: 2rem;
 			vertical-align: top;
 		}
+	}
+}
+
+@media (max-width: 480px) {
+	.form {
+		border-left: none;
+		border-right: none;
 	}
 }

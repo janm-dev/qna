@@ -1,8 +1,8 @@
-.form {
+.question {
 	display: grid;
-	grid-template-columns: auto 6rem 4rem 4rem;
+	grid-template-columns: auto 4rem 4rem 4rem 4rem;
 	grid-template-rows: 1fr auto;
-	grid-template-areas: "author score clear send" "text text text text";
+	grid-template-areas: "author score up remove down" "text text text text text";
 	border: 0.2rem solid #000000;
 	border-radius: 1rem;
 	margin-bottom: 4rem;
@@ -13,12 +13,21 @@
 		margin: 0.5rem 1rem;
 		min-width: 0;
 		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 
 	.score {
 		grid-area: score;
 		margin: auto;
-		width: 4rem;
+		text-overflow: ellipsis;
+		font-size: 1.5rem;
+		background-color: #edeeef;
+		min-width: 2ch;
+		min-height: 2rem;
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+		text-align: center;
 	}
 
 	.text {
@@ -29,19 +38,19 @@
 		min-width: 0;
 	}
 
-	.clear {
-		grid-area: clear;
+	.up {
+		grid-area: up;
 	}
 
-	.send {
-		grid-area: send;
+	.remove {
+		grid-area: remove;
 	}
 
-	textarea {
-		height: 16rem;
+	.down {
+		grid-area: down;
 	}
 
-	button {
+	.button {
 		background: none;
 		border: none;
 		width: 3rem;
@@ -50,10 +59,22 @@
 		padding: 0.5rem;
 		cursor: pointer;
 
-		img {
+		.buttonimg {
 			height: 2rem;
 			width: 2rem;
 			vertical-align: top;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.question {
+		.author {
+			font-size: 2.5rem;
+		}
+
+		.text {
+			font-size: 2rem;
 		}
 	}
 }

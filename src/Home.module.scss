@@ -1,0 +1,162 @@
+.main {
+	width: var(--width);
+	margin: 2rem auto;
+}
+
+.connectform {
+	display: grid;
+	padding: 1rem;
+	border: 0.2rem solid #000000;
+	border-radius: 0.5rem;
+	gap: 0.5rem;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+		"codeinputtext codeinput"
+		"transportselecttext transportselect"
+		"connectbutton hostbutton";
+
+	.codeinputtext {
+		grid-area: codeinputtext;
+	}
+
+	.codeinput {
+		margin: auto 0;
+		grid-area: codeinput;
+	}
+
+	.transportselecttext {
+		grid-area: transportselecttext;
+	}
+
+	.transportselect {
+		margin: auto 0;
+		grid-area: transportselect;
+	}
+
+	.connectbutton {
+		margin: auto;
+		width: 10ch;
+		grid-area: connectbutton;
+	}
+
+	.hostbutton {
+		margin: auto;
+		width: 10ch;
+		grid-area: hostbutton;
+	}
+}
+
+.infosection {
+	margin: 2rem 0 0;
+
+	.infoheader {
+		font-size: 3rem;
+		font-weight: 700;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 1rem;
+	}
+
+	.infoblock {
+		display: grid;
+		grid-template-columns: 10ch auto;
+		grid-template-rows: auto;
+		grid-template-areas: "left right";
+		font-size: 1.5rem;
+		font-weight: 400;
+		margin: 1rem;
+		font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont, Segoe UI,
+			Helvetica, sans-serif;
+
+		.mono {
+			grid-area: left;
+			margin: auto;
+		}
+
+		.infotext {
+			display: block;
+			grid-area: right;
+			margin: auto 1rem;
+			font-size: 1.5rem;
+			font-weight: 400;
+			font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont,
+				Segoe UI, Helvetica, sans-serif;
+			margin: 0.5rem;
+		}
+	}
+}
+
+.infonote {
+	display: block;
+	font-size: 1.5rem;
+	font-weight: 400;
+	font-style: italic;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+		sans-serif;
+	margin: 2rem 0.5rem;
+
+	.infolink {
+		color: #2080ee;
+		font-size: 1.5rem;
+		font-weight: 400;
+		font-style: inherit;
+		text-decoration: none;
+		font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+			Helvetica, sans-serif;
+	}
+}
+
+.mono {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 1.5rem;
+	background-color: #edeeef;
+	min-width: 6ch;
+	min-height: 2rem;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	margin: 0.5rem;
+}
+
+.source {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid #000000;
+
+	.sourcetext {
+		font-size: 1.5rem;
+		font-weight: 400;
+		font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont, Segoe UI,
+			Helvetica, sans-serif;
+	}
+}
+
+@media (max-width: 480px) {
+	.main {
+		width: 100%;
+		margin: 0;
+	}
+
+	.connectform {
+		border-left: none;
+		border-right: none;
+		margin: 0;
+	}
+
+	.source {
+		display: block;
+		justify-content: space-between;
+		border-top: 1px solid #000000;
+
+		.sourcetext {
+			width: 100%;
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: 400;
+			font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont,
+				Segoe UI, Helvetica, sans-serif;
+		}
+	}
+}

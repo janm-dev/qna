@@ -1,0 +1,46 @@
+.header {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto 1fr;
+	grid-template-areas: "logo code";
+	max-width: 100%;
+	height: 6rem;
+	margin: 1rem 2rem 2rem;
+
+	.logolink {
+		margin: 0 auto 0 0;
+		max-width: min-content;
+
+		.logo {
+			font-size: 4rem;
+			grid-area: logo;
+			margin: 0;
+			color: #000000;
+			max-width: min-content;
+		}
+	}
+
+	.code {
+		font-size: 4rem;
+		grid-area: code;
+		text-align: end;
+		margin: 0;
+		color: #000000;
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		height: 4rem;
+
+		.logo {
+			font-size: 3rem;
+			margin: auto 0;
+		}
+
+		.code {
+			font-size: 2rem;
+			margin: auto 0;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.queue {
+	max-width: calc(100% - 4rem);
+	margin: 2rem auto;
+}
+
+@media (max-width: 480px) {
+	.queue {
+		max-width: calc(100% - 2rem);
+		margin: 1rem auto;
+	}
+}

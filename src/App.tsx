@@ -3,7 +3,7 @@ import { DataTransport } from "./connection"
 import { useEffect, useState } from "react"
 import Client from "./Client"
 import Home from "./Home"
-import "./App.scss"
+import styles from "./App.module.scss"
 
 const App = () => {
 	const [headerEnabled, setHeaderEnabled] = useState(false)
@@ -62,11 +62,11 @@ const App = () => {
 	return (
 		<Router>
 			{!headerEnabled ? (
-				<header>
-					<a href="/">
-						<h1 className="logo-text">qna</h1>
+				<header className={styles.header}>
+					<a className={styles.logolink} href="/">
+						<h1 className={styles.logo}>qna</h1>
 					</a>
-					<h2 className="code">{code}</h2>
+					<h2 className={styles.code}>{code}</h2>
 				</header>
 			) : null}
 

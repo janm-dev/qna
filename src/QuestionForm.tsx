@@ -1,7 +1,7 @@
 import connection from "./connection"
 import { useState } from "react"
 import { nanoid } from "nanoid"
-import "./QuestionForm.scss"
+import styles from "./QuestionForm.module.scss"
 
 export const QuestionForm = () => {
 	const [author, setAuthor] = useState("")
@@ -32,10 +32,10 @@ export const QuestionForm = () => {
 	}
 
 	return (
-		<div className="form">
+		<div className={styles.form}>
 			<input
 				type="text"
-				className="author"
+				className={styles.author}
 				placeholder="Author"
 				maxLength={10}
 				width={12}
@@ -46,7 +46,7 @@ export const QuestionForm = () => {
 			/>
 			<input
 				type="number"
-				className="score"
+				className={styles.score}
 				aria-label="initial score"
 				value={score}
 				onChange={(ev) => {
@@ -54,15 +54,19 @@ export const QuestionForm = () => {
 				}}
 			/>
 
-			<button onClick={clear}>
-				<img alt="clear" src="/clear.svg" className="clear" />
+			<button className={styles.button} onClick={clear}>
+				<img
+					alt="clear"
+					src="/clear.svg"
+					className={styles.buttonimg}
+				/>
 			</button>
-			<button onClick={send}>
-				<img alt="send" src="/send.svg" className="send" />
+			<button className={styles.button} onClick={send}>
+				<img alt="send" src="/send.svg" className={styles.buttonimg} />
 			</button>
 
 			<textarea
-				className="text"
+				className={styles.text}
 				placeholder="Lorem ipsum dolor sit amet, ..."
 				cols={80}
 				rows={5}

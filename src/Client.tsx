@@ -3,7 +3,7 @@ import { QuestionQueue } from "./QuestionQueue"
 import { QuestionForm } from "./QuestionForm"
 import { useEffect, useState } from "react"
 import { QuestionInfo } from "./Question"
-import "./Client.scss"
+import styles from "./Client.module.scss"
 
 const Client = ({
 	code,
@@ -92,7 +92,7 @@ const Client = ({
 	}, [questions, code, dataTransport, isHost])
 
 	return (
-		<main>
+		<main className={styles.main}>
 			{formEnabled ? null : <QuestionForm />}
 			<QuestionQueue questions={questions} isHost={isHost} />
 		</main>
