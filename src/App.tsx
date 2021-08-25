@@ -1,12 +1,19 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import createPersistedState from "use-persisted-state"
 import { DataTransport } from "./connection"
 import { useEffect, useState } from "react"
 import Client from "./Client"
 import Home from "./Home"
 import styles from "./App.module.scss"
 
+export const themes = ["none", "light", "dark"]
+
+const useHeaderState = createPersistedState("headerEnabled")
+const useThemeState = createPersistedState("theme")
+
 const App = () => {
-	const [headerEnabled, setHeaderEnabled] = useState(false)
+	const [theme, setTheme] = useThemeState(0)
+	const [headerEnabled, setHeaderEnabled] = useHeaderState(false)
 	const [formEnabled, setFormEnabled] = useState(true)
 	const [code, _setCode] = useState(
 		(window.location.hash
@@ -34,8 +41,22 @@ const App = () => {
 	})
 
 	useEffect(() => {
+		document.querySelector("html")!.dataset.forceTheme = themes[theme]
+	})
+
+	useEffect(() => {
 		// Keyboard shortcuts
 		const controller = new AbortController()
+
+		const switchTheme = () => {
+			if (theme + 1 >= themes.length) {
+				window.logger.log("Not forcing theme")
+				setTheme(0)
+			} else {
+				window.logger.log(`Forcing theme ${themes[theme + 1]}`)
+				setTheme(theme + 1)
+			}
+		}
 
 		const listener = (ev: KeyboardEvent) => {
 			if (ev.key === "h" && ev.altKey) {
@@ -47,6 +68,9 @@ const App = () => {
 			} else if (ev.key === "d" && ev.altKey) {
 				window.logger.enabled = !window.logger.enabled
 				ev.preventDefault()
+			} else if (ev.key === "t" && ev.altKey) {
+				switchTheme()
+				ev.preventDefault()
 			}
 		}
 
@@ -57,7 +81,7 @@ const App = () => {
 		return () => {
 			controller.abort()
 		}
-	}, [headerEnabled, formEnabled])
+	}, [headerEnabled, setHeaderEnabled, theme, setTheme, formEnabled])
 
 	return (
 		<Router>

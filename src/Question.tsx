@@ -1,5 +1,9 @@
 import { ID } from "./index"
+import { ReactComponent as UpIcon } from "./icons/up.svg"
+import { ReactComponent as RemoveIcon } from "./icons/remove.svg"
+import { ReactComponent as DownIcon } from "./icons/down.svg"
 import styles from "./Question.module.scss"
+import shared from "./shared.module.scss"
 
 export const Question = (props: QuestionInfo & QuestionCallbacks) => (
 	<div className={styles.question}>
@@ -12,10 +16,8 @@ export const Question = (props: QuestionInfo & QuestionCallbacks) => (
 				props.upCallback(props.id)
 			}}
 		>
-			<img
-				alt="up"
-				src="/up.svg"
-				className={`${styles.up} ${styles.buttonimg}`}
+			<UpIcon
+				className={`${styles.up} ${styles.buttonimg} ${shared.svgicon}`}
 			/>
 		</button>
 		<button
@@ -24,10 +26,8 @@ export const Question = (props: QuestionInfo & QuestionCallbacks) => (
 				props.removeCallback(props.id)
 			}}
 		>
-			<img
-				alt="remove"
-				src="/remove.svg"
-				className={`${styles.remove} ${styles.buttonimg}`}
+			<RemoveIcon
+				className={`${styles.remove} ${styles.buttonimg} ${shared.svgicon}`}
 			/>
 		</button>
 		<button
@@ -36,10 +36,8 @@ export const Question = (props: QuestionInfo & QuestionCallbacks) => (
 				props.downCallback(props.id)
 			}}
 		>
-			<img
-				alt="down"
-				src="/down.svg"
-				className={`${styles.down} ${styles.buttonimg}`}
+			<DownIcon
+				className={`${styles.down} ${styles.buttonimg} ${shared.svgicon}`}
 			/>
 		</button>
 

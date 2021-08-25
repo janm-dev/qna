@@ -15,7 +15,7 @@
 			font-size: 4rem;
 			grid-area: logo;
 			margin: 0;
-			color: #000000;
+			color: var(--fg-color);
 			max-width: min-content;
 		}
 	}
@@ -25,7 +25,7 @@
 		grid-area: code;
 		text-align: end;
 		margin: 0;
-		color: #000000;
+		color: var(--fg-color);
 	}
 }
 

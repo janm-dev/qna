@@ -1,7 +1,10 @@
 import connection from "./connection"
 import { useState } from "react"
 import { nanoid } from "nanoid"
+import { ReactComponent as ClearIcon } from "./icons/clear.svg"
+import { ReactComponent as SendIcon } from "./icons/send.svg"
 import styles from "./QuestionForm.module.scss"
+import shared from "./shared.module.scss"
 
 export const QuestionForm = () => {
 	const [author, setAuthor] = useState("")
@@ -55,14 +58,10 @@ export const QuestionForm = () => {
 			/>
 
 			<button className={styles.button} onClick={clear}>
-				<img
-					alt="clear"
-					src="/clear.svg"
-					className={styles.buttonimg}
-				/>
+				<ClearIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
 			</button>
 			<button className={styles.button} onClick={send}>
-				<img alt="send" src="/send.svg" className={styles.buttonimg} />
+				<SendIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
 			</button>
 
 			<textarea

@@ -93,6 +93,12 @@ const Home = ({
 					<p className={styles.infotext}>Show/Hide header</p>
 				</div>
 				<div className={styles.infoblock}>
+					<code className={styles.mono}>alt+t</code>
+					<p className={styles.infotext}>
+						Switch themes (browser setting, light, dark)
+					</p>
+				</div>
+				<div className={styles.infoblock}>
 					<code className={styles.mono}>alt+d</code>
 					<p className={styles.infotext}>
 						Show/Hide debug information in the console

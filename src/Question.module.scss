@@ -3,7 +3,7 @@
 	grid-template-columns: auto 4rem 4rem 4rem 4rem;
 	grid-template-rows: 1fr auto;
 	grid-template-areas: "author score up remove down" "text text text text text";
-	border: 0.2rem solid #000000;
+	border: 0.2rem solid var(--fg-color);
 	border-radius: 1rem;
 	margin-bottom: 4rem;
 	padding: 0.5rem;
@@ -22,7 +22,7 @@
 		margin: auto;
 		text-overflow: ellipsis;
 		font-size: 1.5rem;
-		background-color: #edeeef;
+		background-color: var(--gray-2);
 		min-width: 2ch;
 		min-height: 2rem;
 		border-radius: 0.5rem;
@@ -56,12 +56,12 @@
 		width: 3rem;
 		height: 3rem;
 		margin: auto 0.5rem;
-		padding: 0.5rem;
+		padding: 0;
 		cursor: pointer;
 
 		.buttonimg {
-			height: 2rem;
-			width: 2rem;
+			height: 3rem;
+			width: 3rem;
 			vertical-align: top;
 		}
 	}
