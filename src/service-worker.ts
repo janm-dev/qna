@@ -21,14 +21,6 @@ const cachedPaths = [
 	{ url: "/maskable-128.png", revision: "0" },
 	{ url: "/maskable-512.png", revision: "0" },
 
-	// In-app Icons
-	{ url: "/up.svg", revision: "0" },
-	{ url: "/sync.svg", revision: "0" },
-	{ url: "/send.svg", revision: "0" },
-	{ url: "/down.svg", revision: "0" },
-	{ url: "/clear.svg", revision: "0" },
-	{ url: "/remove.svg", revision: "0" },
-
 	// Fonts
 	{ url: "/fonts.css", revision: "0" },
 	{ url: "/fonts/inter-bold.woff2", revision: "0" },
@@ -62,5 +54,3 @@ self.addEventListener("message", (event) => {
 		self.skipWaiting()
 	}
 })
-
-export default null
