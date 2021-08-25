@@ -130,6 +130,7 @@ button:hover {
 }
 
 button:disabled {
+	opacity: 0.3;
 	cursor: default;
 	background-color: var(--gray-1);
 }
