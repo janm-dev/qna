@@ -47,22 +47,6 @@ export const QuestionForm = () => {
 					setAuthor(ev.target.value)
 				}}
 			/>
-			<input
-				type="number"
-				className={styles.score}
-				aria-label="initial score"
-				value={score}
-				onChange={(ev) => {
-					setScore(ev.target.value)
-				}}
-			/>
-
-			<button className={styles.button} onClick={clear}>
-				<ClearIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
-			</button>
-			<button className={styles.button} onClick={send}>
-				<SendIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
-			</button>
 
 			<textarea
 				className={styles.text}
@@ -74,6 +58,25 @@ export const QuestionForm = () => {
 					setText(ev.target.value)
 				}}
 			/>
+
+			<input
+				type="number"
+				className={styles.score}
+				aria-label="initial score"
+				value={score}
+				onChange={(ev) => {
+					setScore(ev.target.value)
+				}}
+			/>
+
+			<button className={styles.button} onClick={clear}>
+				<ClearIcon
+					className={`${styles.buttonimg} ${shared.svgicon}`}
+				/>
+			</button>
+			<button className={styles.button} onClick={send}>
+				<SendIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
+			</button>
 		</div>
 	)
 }
