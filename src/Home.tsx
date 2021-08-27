@@ -168,7 +168,7 @@ const Home = ({
 				<a href="https://github.com/janmml/qna">
 					<p className={styles.sourcetext}>Web App source</p>
 				</a>
-				<a href="https://github.com/janmml/qna-relay">
+				<a href="https://github.com/janmml/ws-relay">
 					<p className={styles.sourcetext}>WebSocket server source</p>
 				</a>
 			</div>
