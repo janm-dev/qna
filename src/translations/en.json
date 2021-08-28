@@ -1,0 +1,46 @@
+{
+	"TransportSelect": {
+		"local": "local",
+		"remote": "remote"
+	},
+
+	"Home": {
+		"code": "Code:",
+		"type": "Type:",
+		"connect": "Connect",
+		"host": "Host",
+		"shortcuts": "Keyboard Shortcuts:",
+		"shortH": "Show/Hide header",
+		"shortT": "Switch themes (browser setting, light, dark)",
+		"shortD": "Show/Hide debug information in the console",
+		"shortF": "(/host or /connect) Show/hide question form",
+		"shortS": "(/host) Sync all clients to the current questions",
+		"shortR": "(/connect) Request a sync to all clients from the host",
+		"types": "Connection Types:",
+		"local": "local",
+		"localDesc": "Connect to other tabs in the same browser using BroadcastChannel (Chrome, Firefox, Edge, Opera)*",
+		"remote": "remote",
+		"remoteDesc": "Connect to other tabs in any browser with an internet connection through a server using WebSockets (most browsers)*",
+		"note1": "* Modern desktop versions of the above browsers. For more info on browser version support check ",
+		"note2": "here for local connections",
+		"note3": ", and ",
+		"note4": "here for remote connection",
+		"note5": ".",
+		"copy": "© janm.ml and contributors",
+		"webapp": "Web App source",
+		"server": "WebSocket server source"
+	},
+
+	"QuestionForm": {
+		"author": "Author",
+		"question": "Lorem ipsum dolor sit amet, ...",
+		"clear": "Clear form",
+		"send": "Send question"
+	},
+
+	"Question": {
+		"up": "Upvote",
+		"remove": "Remove",
+		"down": "Downvote"
+	}
+}

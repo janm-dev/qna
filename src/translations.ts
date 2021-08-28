@@ -1,128 +1,56 @@
 import { createTranslations } from "react-ridge-translations"
+import en from "./translations/en.json"
 
 type TranslationLanguages = {
 	en: string
 }
 
-const translate = createTranslations<TranslationLanguages>()(
-	{
-		TransportSelect: {
-			local: {
-				en: "local"
-			},
-			remote: {
-				en: "remote"
-			}
-		},
+type Translations = {
+	[component: string]: {
+		[text: string]: TranslationLanguages
+	}
+}
 
-		Home: {
-			code: {
-				en: "Code:"
-			},
-			type: {
-				en: "Type:"
-			},
+const translations = { en }
 
-			connect: {
-				en: "Connect"
-			},
-			host: {
-				en: "Host"
-			},
+const mappedTranslations: Translations = {}
 
-			shortcuts: {
-				en: "Keyboard Shortcuts:"
-			},
-			shortH: {
-				en: "Show/Hide header"
-			},
-			shortT: {
-				en: "Switch themes (browser setting, light, dark)"
-			},
-			shortD: {
-				en: "Show/Hide debug information in the console"
-			},
-			shortF: {
-				en: "(/host or /connect) Show/hide question form"
-			},
-			shortS: {
-				en: "(/host) Sync all clients to the current questions"
-			},
-			shortR: {
-				en: "(/connect) Request a sync to all clients from the host"
-			},
+// Map from { language: { component: { text: "" } } }
+// to { component: { text: { language: "" } } }
+for (const _language in translations) {
+	const language = _language as keyof typeof translations
 
-			types: {
-				en: "Connection Types:"
-			},
-			local: {
-				en: "local"
-			},
-			localDesc: {
-				en: "Connect to other tabs in the same browser using BroadcastChannel (Chrome, Firefox, Edge, Opera)*"
-			},
-			remote: {
-				en: "remote"
-			},
-			remoteDesc: {
-				en: "Connect to other tabs in any browser with an internet connection through a server using WebSockets (most browsers)*"
-			},
+	// Get the components in the current language
+	const components = translations[language]
 
-			note1: {
-				en: "* Modern desktop versions of the above browsers. For more info on browser version support check "
-			},
-			note2: {
-				en: "here for local connections"
-			},
-			note3: {
-				en: ", and "
-			},
-			note4: {
-				en: "here for remote connection"
-			},
-			note5: {
-				en: "."
-			},
+	for (const _component in components) {
+		const component = _component as keyof typeof components
 
-			copy: {
-				en: "© janm.ml and contributors"
-			},
-			webapp: {
-				en: "Web App source"
-			},
-			server: {
-				en: "WebSocket server source"
-			}
-		},
-
-		QuestionForm: {
-			author: {
-				en: "Author"
-			},
-			question: {
-				en: "Lorem ipsum dolor sit amet, ..."
-			},
-
-			clear: {
-				en: "Clear form"
-			},
-			send: {
-				en: "Send question"
-			}
-		},
-
-		Question: {
-			up: {
-				en: "Upvote"
-			},
-			remove: {
-				en: "Remove"
-			},
-			down: {
-				en: "Downvote"
-			}
+		// Default to empty component (will be populated later)
+		if (!mappedTranslations[component]) {
+			mappedTranslations[component] = {}
 		}
-	},
+
+		// Get all translated texts as an array of [text, ""]
+		const texts = Object.entries(components[component])
+
+		for (const text of texts) {
+			// Set mapped text to {} initially
+			if (!mappedTranslations[component][text[0]]) {
+				mappedTranslations[component][text[0]] =
+					{} as TranslationLanguages
+			}
+
+			// Set the translated text in the form of { text: { language: "" } }
+			mappedTranslations[component][text[0]][language] = text[1]
+		}
+	}
+}
+
+window.logger.info(`Loaded translations: ${JSON.stringify(mappedTranslations)}`)
+
+const translate = createTranslations<TranslationLanguages>()(
+	mappedTranslations,
 	{
 		language: "en",
 		fallback: "en"
