@@ -2,7 +2,7 @@
 
 Cross-screen QnA question queue.
 
-The WebSocket relay server is available at [https://github.com/janmml/qna-relay](https://github.com/janmml/qna-relay).
+The WebSocket relay server is available on [https://github.com/janmml/ws-relay](https://github.com/janmml/ws-relay)
 
 ## Running locally
 

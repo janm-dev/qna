@@ -157,7 +157,7 @@ const Home = ({
 				<a href="https://github.com/janmml/qna">
 					<p className={styles.sourcetext}>{t.webapp}</p>
 				</a>
-				<a href="https://github.com/janmml/qna-relay">
+				<a href="https://github.com/janmml/ws-relay">
 					<p className={styles.sourcetext}>{t.server}</p>
 				</a>
 			</div>

@@ -64,3 +64,19 @@
 		border-right: none;
 	}
 }
+
+html[data-force-theme="dark"] {
+	.form {
+		border-color: transparent;
+		background-color: var(--gray-1);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not([data-force-theme="light"]) {
+		.form {
+			border-color: transparent;
+			background-color: var(--gray-1);
+		}
+	}
+}

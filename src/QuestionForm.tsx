@@ -50,6 +50,18 @@ export const QuestionForm = () => {
 					setAuthor(ev.target.value)
 				}}
 			/>
+
+			<textarea
+				className={styles.text}
+				placeholder="Lorem ipsum dolor sit amet, ..."
+				cols={80}
+				rows={5}
+				value={text}
+				onChange={(ev) => {
+					setText(ev.target.value)
+				}}
+			/>
+
 			<input
 				type="number"
 				className={styles.score}
@@ -68,17 +80,6 @@ export const QuestionForm = () => {
 			<button className={styles.button} onClick={send} title={t.send}>
 				<SendIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
 			</button>
-
-			<textarea
-				className={styles.text}
-				placeholder={t.question}
-				cols={80}
-				rows={5}
-				value={text}
-				onChange={(ev) => {
-					setText(ev.target.value)
-				}}
-			/>
 		</div>
 	)
 }

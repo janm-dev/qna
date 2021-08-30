@@ -67,6 +67,22 @@
 	}
 }
 
+html[data-force-theme="dark"] {
+	.question {
+		border-color: transparent;
+		background-color: var(--gray-1);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not([data-force-theme="light"]) {
+		.question {
+			border-color: transparent;
+			background-color: var(--gray-1);
+		}
+	}
+}
+
 @media (max-width: 480px) {
 	.question {
 		.author {

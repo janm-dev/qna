@@ -31,15 +31,6 @@ html {
 		Helvetica, sans-serif;
 }
 
-html[data-force-theme="dark"] {
-	--fg-color: var(--fg-color-dark);
-	--gray-1: var(--gray-1-dark);
-	--gray-2: var(--gray-2-dark);
-	--gray-3: var(--gray-3-dark);
-	--bg-color: var(--bg-color-dark);
-	--link-color: var(--link-color-dark);
-}
-
 body {
 	margin: 0;
 	padding: 0;
@@ -105,13 +96,13 @@ textarea {
 	font-size: 2rem;
 	resize: none;
 	color: var(--fg-color);
-	background-color: var(--gray-1);
+	background-color: var(--bg-color);
 	border: 0.15rem var(--fg-color) solid;
 	border-radius: 0.25rem;
 
 	&::placeholder {
 		color: var(--fg-color);
-		opacity: 0.3;
+		opacity: 0.4;
 	}
 }
 
@@ -157,6 +148,56 @@ select:active {
 	background-color: var(--gray-3);
 }
 
+html[data-force-theme="dark"] {
+	--fg-color: var(--fg-color-dark);
+	--gray-1: var(--gray-1-dark);
+	--gray-2: var(--gray-2-dark);
+	--gray-3: var(--gray-3-dark);
+	--bg-color: var(--bg-color-dark);
+	--link-color: var(--link-color-dark);
+
+	input,
+	textarea {
+		border-color: transparent;
+		background-color: var(--gray-2);
+	}
+
+	button {
+		border-color: transparent;
+		background-color: var(--gray-2);
+	}
+
+	button:hover {
+		border-color: transparent;
+		background-color: var(--gray-3);
+	}
+
+	button:disabled {
+		border-color: transparent;
+		background-color: var(--gray-2);
+	}
+
+	button:active {
+		border-color: transparent;
+		background-color: var(--gray-3);
+	}
+
+	select {
+		border-color: transparent;
+		background-color: var(--gray-2);
+	}
+
+	select:hover {
+		border-color: transparent;
+		background-color: var(--gray-3);
+	}
+
+	select:active {
+		border-color: transparent;
+		background-color: var(--gray-3);
+	}
+}
+
 @media (prefers-color-scheme: dark) {
 	html:not([data-force-theme="light"]) {
 		--fg-color: var(--fg-color-dark);
@@ -165,6 +206,47 @@ select:active {
 		--gray-3: var(--gray-3-dark);
 		--bg-color: var(--bg-color-dark);
 		--link-color: var(--link-color-dark);
+
+		input,
+		textarea {
+			border-color: transparent;
+			background-color: var(--gray-2);
+		}
+
+		button {
+			border-color: transparent;
+			background-color: var(--gray-2);
+		}
+
+		button:hover {
+			border-color: transparent;
+			background-color: var(--gray-3);
+		}
+
+		button:disabled {
+			border-color: transparent;
+			background-color: var(--gray-2);
+		}
+
+		button:active {
+			border-color: transparent;
+			background-color: var(--gray-3);
+		}
+
+		select {
+			border-color: transparent;
+			background-color: var(--gray-2);
+		}
+
+		select:hover {
+			border-color: transparent;
+			background-color: var(--gray-3);
+		}
+
+		select:active {
+			border-color: transparent;
+			background-color: var(--gray-3);
+		}
 	}
 }
 
