@@ -1,3 +1,4 @@
+import translate from "./translations"
 import connection from "./connection"
 import { useState } from "react"
 import { nanoid } from "nanoid"
@@ -7,6 +8,8 @@ import styles from "./QuestionForm.module.scss"
 import shared from "./shared.module.scss"
 
 export const QuestionForm = () => {
+	const t = translate.use().QuestionForm
+
 	const [author, setAuthor] = useState("")
 	const [text, setText] = useState("")
 	const [score, _setScore] = useState(0)
@@ -39,7 +42,7 @@ export const QuestionForm = () => {
 			<input
 				type="text"
 				className={styles.author}
-				placeholder="Author"
+				placeholder={t.author}
 				maxLength={10}
 				width={12}
 				value={author}
@@ -69,12 +72,12 @@ export const QuestionForm = () => {
 				}}
 			/>
 
-			<button className={styles.button} onClick={clear}>
+			<button className={styles.button} onClick={clear} title={t.clear}>
 				<ClearIcon
 					className={`${styles.buttonimg} ${shared.svgicon}`}
 				/>
 			</button>
-			<button className={styles.button} onClick={send}>
+			<button className={styles.button} onClick={send} title={t.send}>
 				<SendIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
 			</button>
 		</div>
