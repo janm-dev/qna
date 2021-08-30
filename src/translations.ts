@@ -1,8 +1,14 @@
 import { createTranslations } from "react-ridge-translations"
 import en from "./translations/en.json"
 
+export const languages = { en: "english" }
+const translations = { en }
+
+export const fallback = "en"
+export type Language = keyof typeof translations
+
 type TranslationLanguages = {
-	en: string
+	[language in Language]: string
 }
 
 type Translations = {
@@ -10,8 +16,6 @@ type Translations = {
 		[text: string]: TranslationLanguages
 	}
 }
-
-const translations = { en }
 
 const mappedTranslations: Translations = {}
 
@@ -53,7 +57,7 @@ const translate = createTranslations<TranslationLanguages>()(
 	mappedTranslations,
 	{
 		language: "en",
-		fallback: "en"
+		fallback
 	}
 )
 
