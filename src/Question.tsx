@@ -11,7 +11,7 @@ export const Question = (props: QuestionInfo & QuestionCallbacks) => {
 
 	return (
 		<div className={styles.question}>
-			<b className={styles.author}>{props.author || "Anonymous"}</b>
+			<b className={styles.author}>{props.author || t.anonymous}</b>
 			<code className={styles.score}>{props.score}</code>
 
 			<button

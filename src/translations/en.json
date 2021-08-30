@@ -41,6 +41,7 @@
 	"Question": {
 		"up": "Upvote",
 		"remove": "Remove",
-		"down": "Downvote"
+		"down": "Downvote",
+		"anonymous": "Anonymous"
 	}
 }
