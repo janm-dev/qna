@@ -1,3 +1,21 @@
 .svgicon path {
 	fill: var(--fg-color);
 }
+
+.iconbutton {
+	background: none;
+	border: none;
+	width: 3rem;
+	height: 3rem;
+	margin: auto 0.5rem;
+	padding: 0.5rem;
+	padding: 0;
+	cursor: pointer;
+}
+
+.iconbuttonimg {
+	height: 2rem;
+	width: 2rem;
+	margin: 0.5rem;
+	vertical-align: top;
+}

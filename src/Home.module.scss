@@ -61,7 +61,7 @@
 
 	.infoblock {
 		display: grid;
-		grid-template-columns: 10ch auto;
+		grid-template-columns: 12ch auto;
 		grid-template-rows: auto;
 		grid-template-areas: "left right";
 		font-size: 1.5rem;
@@ -73,6 +73,15 @@
 		.mono {
 			grid-area: left;
 			margin: auto;
+			width: 10ch;
+			vertical-align: middle;
+
+			.controlicon {
+				width: 2ch;
+				height: 2ch;
+				margin-left: 1ch;
+				vertical-align: text-bottom;
+			}
 		}
 
 		.infotext {

@@ -34,6 +34,16 @@ const App = () => {
 		}
 	}
 
+	const toggleTheme = () => {
+		if (theme + 1 >= themes.length) {
+			window.logger.log("Not forcing theme")
+			setTheme(0)
+		} else {
+			window.logger.log(`Forcing theme ${themes[theme + 1]}`)
+			setTheme(theme + 1)
+		}
+	}
+
 	useEffect(() => {
 		if (window.location.pathname !== "/" && (!code || !dataTransport)) {
 			window.location.pathname = "/"
@@ -43,45 +53,6 @@ const App = () => {
 	useEffect(() => {
 		document.querySelector("html")!.dataset.forceTheme = themes[theme]
 	})
-
-	useEffect(() => {
-		// Keyboard shortcuts
-		const controller = new AbortController()
-
-		const switchTheme = () => {
-			if (theme + 1 >= themes.length) {
-				window.logger.log("Not forcing theme")
-				setTheme(0)
-			} else {
-				window.logger.log(`Forcing theme ${themes[theme + 1]}`)
-				setTheme(theme + 1)
-			}
-		}
-
-		const listener = (ev: KeyboardEvent) => {
-			if (ev.key === "h" && ev.altKey) {
-				setHeaderEnabled(!headerEnabled)
-				ev.preventDefault()
-			} else if (ev.key === "f" && ev.altKey) {
-				setFormEnabled(!formEnabled)
-				ev.preventDefault()
-			} else if (ev.key === "d" && ev.altKey) {
-				window.logger.enabled = !window.logger.enabled
-				ev.preventDefault()
-			} else if (ev.key === "t" && ev.altKey) {
-				switchTheme()
-				ev.preventDefault()
-			}
-		}
-
-		document.addEventListener("keydown", listener, {
-			signal: controller.signal
-		} as unknown as AddEventListenerOptions)
-
-		return () => {
-			controller.abort()
-		}
-	}, [headerEnabled, setHeaderEnabled, theme, setTheme, formEnabled])
 
 	return (
 		<Router>
@@ -101,15 +72,21 @@ const App = () => {
 						dataTransport={dataTransport}
 						formEnabled={formEnabled}
 						setFormEnabled={setFormEnabled}
+						headerEnabled={headerEnabled}
+						setHeaderEnabled={setHeaderEnabled}
+						toggleTheme={toggleTheme}
 					/>
 				</Route>
 				<Route path="/host">
 					<Client
+						isHost
 						code={code}
 						dataTransport={dataTransport}
 						formEnabled={formEnabled}
 						setFormEnabled={setFormEnabled}
-						isHost
+						headerEnabled={headerEnabled}
+						setHeaderEnabled={setHeaderEnabled}
+						toggleTheme={toggleTheme}
 					/>
 				</Route>
 				<Route path="/">
@@ -120,6 +97,11 @@ const App = () => {
 						}}
 						dataTransport={dataTransport}
 						setDataTransport={setDataTransport}
+						formEnabled={formEnabled}
+						setFormEnabled={setFormEnabled}
+						headerEnabled={headerEnabled}
+						setHeaderEnabled={setHeaderEnabled}
+						toggleTheme={toggleTheme}
 					/>
 				</Route>
 			</Switch>

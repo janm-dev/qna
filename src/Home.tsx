@@ -1,5 +1,12 @@
 import { DataTransport, navigate } from "./connection"
 import translate from "./translations"
+import { Controls } from "./Controls"
+import { ReactComponent as HeaderIcon } from "./icons/header.svg"
+import { ReactComponent as ThemesIcon } from "./icons/theme.svg"
+import { ReactComponent as DebugIcon } from "./icons/debug.svg"
+import { ReactComponent as FormIcon } from "./icons/form.svg"
+import { ReactComponent as SyncIcon } from "./icons/sync.svg"
+import shared from "./shared.module.scss"
 import styles from "./Home.module.scss"
 
 // Symbols for randomly generated code (digits more likely on purpose)
@@ -33,12 +40,22 @@ const Home = ({
 	code,
 	setCode,
 	dataTransport,
-	setDataTransport
+	setDataTransport,
+	headerEnabled,
+	setHeaderEnabled,
+	toggleTheme,
+	formEnabled,
+	setFormEnabled
 }: {
 	code: string
 	setCode: (newCode: string) => unknown
 	dataTransport: DataTransport
 	setDataTransport: (newDataTransport: DataTransport) => unknown
+	headerEnabled: boolean
+	setHeaderEnabled: (newHeaderEnabled: boolean) => unknown
+	toggleTheme: () => unknown
+	formEnabled: boolean
+	setFormEnabled: (newHeaderEnabled: boolean) => unknown
 }) => {
 	const t = translate.use().Home
 
@@ -93,30 +110,69 @@ const Home = ({
 				</button>
 			</div>
 
+			<Controls
+				questionRelated={false}
+				headerEnabled={headerEnabled}
+				setHeaderEnabled={setHeaderEnabled}
+				toggleTheme={toggleTheme}
+				formEnabled={formEnabled}
+				setFormEnabled={setFormEnabled}
+			/>
+
 			<section className={styles.infosection}>
 				<h4 className={styles.infoheader}>{t.shortcuts}</h4>
 				<div className={styles.infoblock}>
-					<code className={styles.mono}>alt+h</code>
+					<code className={styles.mono}>
+						alt+h
+						<HeaderIcon
+							className={`${shared.svgicon} ${styles.controlicon}`}
+						/>
+					</code>
 					<p className={styles.infotext}>{t.shortH}</p>
 				</div>
 				<div className={styles.infoblock}>
-					<code className={styles.mono}>alt+t</code>
+					<code className={styles.mono}>
+						alt+t
+						<ThemesIcon
+							className={`${shared.svgicon} ${styles.controlicon}`}
+						/>
+					</code>
 					<p className={styles.infotext}>{t.shortT}</p>
 				</div>
 				<div className={styles.infoblock}>
-					<code className={styles.mono}>alt+d</code>
+					<code className={styles.mono}>
+						alt+d
+						<DebugIcon
+							className={`${shared.svgicon} ${styles.controlicon}`}
+						/>
+					</code>
 					<p className={styles.infotext}>{t.shortD}</p>
 				</div>
 				<div className={styles.infoblock}>
-					<code className={styles.mono}>alt+f</code>
+					<code className={styles.mono}>
+						alt+f
+						<FormIcon
+							className={`${shared.svgicon} ${styles.controlicon}`}
+						/>
+					</code>
 					<p className={styles.infotext}>{t.shortF}</p>
 				</div>
 				<div className={styles.infoblock}>
-					<code className={styles.mono}>alt+s</code>
+					<code className={styles.mono}>
+						alt+s
+						<SyncIcon
+							className={`${shared.svgicon} ${styles.controlicon}`}
+						/>
+					</code>
 					<p className={styles.infotext}>{t.shortS}</p>
 				</div>
 				<div className={styles.infoblock}>
-					<code className={styles.mono}>alt+r</code>
+					<code className={styles.mono}>
+						alt+r
+						<SyncIcon
+							className={`${shared.svgicon} ${styles.controlicon}`}
+						/>
+					</code>
 					<p className={styles.infotext}>{t.shortR}</p>
 				</div>
 			</section>

@@ -4,6 +4,14 @@
 		"remote": "remote"
 	},
 
+	"Controls": {
+		"header": "Show/Hide header",
+		"theme": "Switch themes",
+		"debug": "Show/Hide debug information",
+		"form": "Show/hide question form",
+		"sync": "Sync/Request sync"
+	},
+
 	"Home": {
 		"code": "Code:",
 		"type": "Type:",

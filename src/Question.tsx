@@ -15,36 +15,36 @@ export const Question = (props: QuestionInfo & QuestionCallbacks) => {
 			<code className={styles.score}>{props.score}</code>
 
 			<button
-				className={styles.button}
+				className={shared.iconbutton}
 				title={t.up}
 				onClick={() => {
 					props.upCallback(props.id)
 				}}
 			>
 				<UpIcon
-					className={`${styles.up} ${styles.buttonimg} ${shared.svgicon}`}
+					className={`${styles.up} ${shared.iconbuttonimg} ${shared.svgicon}`}
 				/>
 			</button>
 			<button
-				className={styles.button}
+				className={shared.iconbutton}
 				title={t.remove}
 				onClick={() => {
 					props.removeCallback(props.id)
 				}}
 			>
 				<RemoveIcon
-					className={`${styles.remove} ${styles.buttonimg} ${shared.svgicon}`}
+					className={`${styles.remove} ${shared.iconbuttonimg} ${shared.svgicon}`}
 				/>
 			</button>
 			<button
-				className={styles.button}
+				className={shared.iconbutton}
 				title={t.down}
 				onClick={() => {
 					props.downCallback(props.id)
 				}}
 			>
 				<DownIcon
-					className={`${styles.down} ${styles.buttonimg} ${shared.svgicon}`}
+					className={`${styles.down} ${shared.iconbuttonimg} ${shared.svgicon}`}
 				/>
 			</button>
 

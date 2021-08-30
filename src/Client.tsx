@@ -3,20 +3,27 @@ import { QuestionQueue } from "./QuestionQueue"
 import { QuestionForm } from "./QuestionForm"
 import { useEffect, useState } from "react"
 import { QuestionInfo } from "./Question"
+import { Controls } from "./Controls"
 import styles from "./Client.module.scss"
 
 const Client = ({
+	isHost = false,
 	code,
 	dataTransport,
+	headerEnabled,
+	setHeaderEnabled,
+	toggleTheme,
 	formEnabled,
-	setFormEnabled,
-	isHost = false
+	setFormEnabled
 }: {
+	isHost?: boolean
 	code: string
 	dataTransport: DataTransport
+	headerEnabled: boolean
+	setHeaderEnabled: (newHeaderEnabled: boolean) => unknown
+	toggleTheme: () => unknown
 	formEnabled: boolean
-	setFormEnabled: (formEnabled: boolean) => unknown
-	isHost?: boolean
+	setFormEnabled: (newHeaderEnabled: boolean) => unknown
 }) => {
 	const [questions, setQuestions] = useState([] as QuestionInfo[])
 
@@ -93,6 +100,14 @@ const Client = ({
 
 	return (
 		<main className={styles.main}>
+			<Controls
+				questionRelated
+				headerEnabled={headerEnabled}
+				setHeaderEnabled={setHeaderEnabled}
+				toggleTheme={toggleTheme}
+				formEnabled={formEnabled}
+				setFormEnabled={setFormEnabled}
+			/>
 			{formEnabled ? null : <QuestionForm />}
 			<QuestionQueue questions={questions} isHost={isHost} />
 		</main>

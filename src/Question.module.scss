@@ -49,22 +49,6 @@
 	.down {
 		grid-area: down;
 	}
-
-	.button {
-		background: none;
-		border: none;
-		width: 3rem;
-		height: 3rem;
-		margin: auto 0.5rem;
-		padding: 0;
-		cursor: pointer;
-
-		.buttonimg {
-			height: 3rem;
-			width: 3rem;
-			vertical-align: top;
-		}
-	}
 }
 
 html[data-force-theme="dark"] {

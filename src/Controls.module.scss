@@ -1,0 +1,43 @@
+.controls {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto;
+	grid-template-areas: "language buttons";
+	border: 0.2rem solid var(--fg-color);
+	border-radius: 1rem;
+	margin: 2rem 0;
+	padding: 0.5rem 1rem;
+
+	.languageselect {
+		grid-area: language;
+		margin: auto auto auto 0;
+	}
+
+	.buttons {
+		grid-area: buttons;
+		margin: auto 0;
+	}
+}
+
+html[data-force-theme="dark"] {
+	.controls {
+		border-color: transparent;
+		background-color: var(--gray-1);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not([data-force-theme="light"]) {
+		.controls {
+			border-color: transparent;
+			background-color: var(--gray-1);
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.controls {
+		border-left: none;
+		border-right: none;
+	}
+}

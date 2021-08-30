@@ -72,13 +72,19 @@ export const QuestionForm = () => {
 				}}
 			/>
 
-			<button className={styles.button} onClick={clear} title={t.clear}>
+			<button
+				className={shared.iconbutton}
+				onClick={clear}
+				title={t.clear}
+			>
 				<ClearIcon
-					className={`${styles.buttonimg} ${shared.svgicon}`}
+					className={`${shared.iconbuttonimg} ${shared.svgicon}`}
 				/>
 			</button>
-			<button className={styles.button} onClick={send} title={t.send}>
-				<SendIcon className={`${styles.buttonimg} ${shared.svgicon}`} />
+			<button className={shared.iconbutton} onClick={send} title={t.send}>
+				<SendIcon
+					className={`${shared.iconbuttonimg} ${shared.svgicon}`}
+				/>
 			</button>
 		</div>
 	)
