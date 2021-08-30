@@ -1,4 +1,5 @@
 import translate, { Language, languages } from "./translations"
+import connection from "./connection"
 import { useEffect } from "react"
 import { ReactComponent as HeaderIcon } from "./icons/header.svg"
 import { ReactComponent as ThemesIcon } from "./icons/theme.svg"
@@ -7,6 +8,7 @@ import { ReactComponent as FormIcon } from "./icons/form.svg"
 import { ReactComponent as SyncIcon } from "./icons/sync.svg"
 import styles from "./Controls.module.scss"
 import shared from "./shared.module.scss"
+import { QuestionInfo } from "./Question"
 
 const LanguageSelect = () => {
 	const { language, fallback } = translate.useOptions()
@@ -34,6 +36,8 @@ const LanguageSelect = () => {
 
 export const Controls = ({
 	questionRelated,
+	isHost = false,
+	questions,
 	headerEnabled,
 	setHeaderEnabled,
 	toggleTheme,
@@ -41,6 +45,8 @@ export const Controls = ({
 	setFormEnabled
 }: {
 	questionRelated: boolean
+	isHost?: boolean
+	questions?: QuestionInfo[]
 	headerEnabled: boolean
 	setHeaderEnabled: (newHeaderEnabled: boolean) => unknown
 	toggleTheme: () => unknown
@@ -48,6 +54,16 @@ export const Controls = ({
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
 }) => {
 	const t = translate.use().Controls
+
+	const sync = () => {
+		if (questionRelated) {
+			if (isHost && questions) {
+				connection.send({ type: "sync", content: questions })
+			} else if (!isHost) {
+				connection.send({ type: "requestSync", content: null })
+			}
+		}
+	}
 
 	useEffect(() => {
 		// Keyboard shortcuts
@@ -137,7 +153,7 @@ export const Controls = ({
 						</button>
 						<button
 							className={shared.iconbutton}
-							onClick={() => console.log("sync/syncrequest")}
+							onClick={() => sync()}
 							title={t.sync}
 						>
 							<SyncIcon

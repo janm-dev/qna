@@ -102,6 +102,8 @@ const Client = ({
 		<main className={styles.main}>
 			<Controls
 				questionRelated
+				isHost={isHost}
+				questions={questions}
 				headerEnabled={headerEnabled}
 				setHeaderEnabled={setHeaderEnabled}
 				toggleTheme={toggleTheme}
