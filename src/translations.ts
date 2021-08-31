@@ -1,8 +1,9 @@
 import { createTranslations } from "react-ridge-translations"
 import en from "./translations/en.json"
+import pl from "./translations/pl.json"
 
-export const languages = { en: "english" }
-const translations = { en }
+export const languages = { en: "english", pl: "polski" }
+const translations = { en, pl }
 
 export const fallback = "en"
 export type Language = keyof typeof translations
