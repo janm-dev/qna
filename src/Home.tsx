@@ -129,7 +129,7 @@ const Home = ({
 			/>
 
 			<section className={styles.infosection}>
-				<h4 className={styles.infoheader}>{t.shortcuts}</h4>
+				<h3 className={styles.infoheader}>{t.shortcuts}</h3>
 				<div className={styles.infoblock}>
 					<code className={styles.mono}>
 						alt+h
@@ -187,7 +187,7 @@ const Home = ({
 			</section>
 
 			<section className={styles.infosection}>
-				<h4 className={styles.infoheader}>{t.types}</h4>
+				<h3 className={styles.infoheader}>{t.types}</h3>
 				<div className={styles.infoblock}>
 					<code className={styles.mono}>{t.local}</code>
 					<p className={styles.infotext}>{t.localDesc}</p>
