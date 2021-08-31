@@ -1,0 +1,55 @@
+{
+	"TransportSelect": {
+		"local": "lokalny",
+		"remote": "zdalny"
+	},
+
+	"Controls": {
+		"header": "Pokaż/ukryj nagłówek",
+		"theme": "Przełącz motywy",
+		"debug": "Pokaż/ukryj informacje debugowania",
+		"form": "Pokaż/ukryj formularz pytania",
+		"sync": "Synchronizuj/Poproś o synchronizację"
+	},
+
+	"Home": {
+		"code": "Kod:",
+		"type": "Typ:",
+		"connect": "Połącz",
+		"host": "Hostuj",
+		"shortcuts": "Skróty klawiszowe:",
+		"shortH": "Pokaż/ukryj nagłówek",
+		"shortT": "Przełącz motyw (ustawienie przeglądarki, jasny, ciemny)",
+		"shortD": "Pokaż/ukryj informacje debugowania w konsoli przeglądarki",
+		"shortF": "(/host lub /connect) Pokaż/ukryj formularz pytania",
+		"shortS": "(/host) Zsynchronizuj wszystkich klientów z bieżącymi pytaniami",
+		"shortR": "(/connect) Poproś hosta o synchronizację wszystkich klientów",
+		"types": "Typy połączeń:",
+		"local": "lokalny",
+		"localDesc": "Połącz się z innymi kartami w tej samej przeglądarce za pomocą BroadcastChannel (Chrome, Firefox, Edge, Opera)*",
+		"remote": "zdalny",
+		"remoteDesc": "Połącz się z innymi kartami w dowolnej przeglądarce z połączeniem internetowym przez serwer za pomocą WebSockets (większość przeglądarek)*",
+		"note1": "* Nowoczesne wersje wyżej wymienionych przeglądarek. Więcej informacji na temat obsługi wersji przeglądarek znajdziesz ",
+		"note2": "tutaj dla połączeń lokalnych",
+		"note3": " i ",
+		"note4": "tutaj dla połączeń zdalnych",
+		"note5": ".",
+		"copy": "© janm.ml i współtwórcy",
+		"webapp": "Źródło strony",
+		"server": "Źródło serwera WebSocket"
+	},
+
+	"QuestionForm": {
+		"author": "Autor",
+		"question": "Lorem ipsum dolor sit amet, ...",
+		"clear": "Wyczyść formularz",
+		"send": "Wyślij pytanie"
+	},
+
+	"Question": {
+		"up": "Głos w górę",
+		"remove": "Usuń",
+		"down": "Głos w dół",
+		"anonymous": "Anonim"
+	}
+}
