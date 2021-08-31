@@ -1,5 +1,5 @@
 import { DataTransport, navigate } from "./connection"
-import translate from "./translations"
+import translate, { Language } from "./translations"
 import { Controls } from "./Controls"
 import { ReactComponent as HeaderIcon } from "./icons/header.svg"
 import { ReactComponent as ThemesIcon } from "./icons/theme.svg"
@@ -46,7 +46,9 @@ const Home = ({
 	toggleTheme,
 	formEnabled,
 	setFormEnabled,
-	toggleDebugEnabled
+	toggleDebugEnabled,
+	language,
+	setLanguage
 }: {
 	code: string
 	setCode: (newCode: string) => unknown
@@ -58,6 +60,8 @@ const Home = ({
 	formEnabled: boolean
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
 	toggleDebugEnabled: () => unknown
+	language: Language
+	setLanguage: (newLanguage: Language) => unknown
 }) => {
 	const t = translate.use().Home
 
@@ -120,6 +124,8 @@ const Home = ({
 				formEnabled={formEnabled}
 				setFormEnabled={setFormEnabled}
 				toggleDebugEnabled={toggleDebugEnabled}
+				language={language}
+				setLanguage={setLanguage}
 			/>
 
 			<section className={styles.infosection}>

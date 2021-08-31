@@ -1,4 +1,5 @@
 import translate, { Language, languages } from "./translations"
+import { QuestionInfo } from "./Question"
 import connection from "./connection"
 import { useEffect } from "react"
 import { ReactComponent as HeaderIcon } from "./icons/header.svg"
@@ -8,31 +9,29 @@ import { ReactComponent as FormIcon } from "./icons/form.svg"
 import { ReactComponent as SyncIcon } from "./icons/sync.svg"
 import styles from "./Controls.module.scss"
 import shared from "./shared.module.scss"
-import { QuestionInfo } from "./Question"
 
-const LanguageSelect = () => {
-	const { language, fallback } = translate.useOptions()
-
-	return (
-		<select
-			className={styles.languageselect}
-			name="language"
-			value={language}
-			onChange={(ev) => {
-				translate.setOptions({
-					language: ev.target.value as Language,
-					fallback
-				})
-			}}
-		>
-			{Object.keys(languages).map((language) => (
-				<option key={language} value={language}>
-					{languages[language as Language]}
-				</option>
-			))}
-		</select>
-	)
-}
+const LanguageSelect = ({
+	language,
+	setLanguage
+}: {
+	language: Language
+	setLanguage: (newLanguage: Language) => unknown
+}) => (
+	<select
+		className={styles.languageselect}
+		name="language"
+		value={language}
+		onChange={(ev) => {
+			setLanguage(ev.target.value as Language)
+		}}
+	>
+		{Object.keys(languages).map((language) => (
+			<option key={language} value={language}>
+				{languages[language as Language]}
+			</option>
+		))}
+	</select>
+)
 
 export const Controls = ({
 	questionRelated,
@@ -43,7 +42,9 @@ export const Controls = ({
 	toggleTheme,
 	formEnabled,
 	setFormEnabled,
-	toggleDebugEnabled
+	toggleDebugEnabled,
+	language,
+	setLanguage
 }: {
 	questionRelated: boolean
 	isHost?: boolean
@@ -54,6 +55,8 @@ export const Controls = ({
 	formEnabled: boolean
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
 	toggleDebugEnabled: () => unknown
+	language: Language
+	setLanguage: (newLanguage: Language) => unknown
 }) => {
 	const t = translate.use().Controls
 
@@ -106,7 +109,7 @@ export const Controls = ({
 
 	return (
 		<div className={styles.controls}>
-			<LanguageSelect />
+			<LanguageSelect language={language} setLanguage={setLanguage} />
 
 			<div className={styles.buttons}>
 				<button

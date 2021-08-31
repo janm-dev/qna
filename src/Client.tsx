@@ -3,6 +3,7 @@ import { QuestionQueue } from "./QuestionQueue"
 import { QuestionForm } from "./QuestionForm"
 import { useEffect, useState } from "react"
 import { QuestionInfo } from "./Question"
+import { Language } from "./translations"
 import { Controls } from "./Controls"
 import styles from "./Client.module.scss"
 
@@ -15,7 +16,9 @@ const Client = ({
 	toggleTheme,
 	formEnabled,
 	setFormEnabled,
-	toggleDebugEnabled
+	toggleDebugEnabled,
+	language,
+	setLanguage
 }: {
 	isHost?: boolean
 	code: string
@@ -26,6 +29,8 @@ const Client = ({
 	formEnabled: boolean
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
 	toggleDebugEnabled: () => unknown
+	language: Language
+	setLanguage: (newLanguage: Language) => unknown
 }) => {
 	const [questions, setQuestions] = useState([] as QuestionInfo[])
 
@@ -112,6 +117,8 @@ const Client = ({
 				formEnabled={formEnabled}
 				setFormEnabled={setFormEnabled}
 				toggleDebugEnabled={toggleDebugEnabled}
+				language={language}
+				setLanguage={setLanguage}
 			/>
 			{formEnabled ? null : <QuestionForm />}
 			<QuestionQueue questions={questions} isHost={isHost} />

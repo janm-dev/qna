@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import createPersistedState from "use-persisted-state"
+import translate, { Language } from "./translations"
 import { DataTransport } from "./connection"
 import { useEffect, useState } from "react"
 import { buildVersion } from "."
@@ -10,10 +11,12 @@ import styles from "./App.module.scss"
 export const themes = ["none", "light", "dark"]
 
 const useHeaderState = createPersistedState("headerEnabled")
+const useLanguageState = createPersistedState("language")
 const useThemeState = createPersistedState("theme")
 
 const App = () => {
 	const [theme, setTheme] = useThemeState(0)
+	const [language, _setLanguage] = useLanguageState("en" as Language)
 	const [headerEnabled, setHeaderEnabled] = useHeaderState(false)
 	const [formEnabled, setFormEnabled] = useState(true)
 	const [code, _setCode] = useState(
@@ -51,6 +54,17 @@ const App = () => {
 		_setDebugEnabled(window.logger.enabled)
 	}
 
+	const setLanguage = (newLanguage: Language) => {
+		const { fallback } = translate.getOptions()
+
+		document.documentElement.lang = newLanguage
+		translate.setOptions({
+			language: newLanguage,
+			fallback
+		})
+		_setLanguage(newLanguage)
+	}
+
 	useEffect(() => {
 		if (window.location.pathname !== "/" && (!code || !dataTransport)) {
 			window.location.pathname = "/"
@@ -60,6 +74,16 @@ const App = () => {
 	useEffect(() => {
 		document.querySelector("html")!.dataset.forceTheme = themes[theme]
 	})
+
+	useEffect(() => {
+		const { fallback } = translate.getOptions()
+
+		document.documentElement.lang = language
+		translate.setOptions({
+			language: language,
+			fallback
+		})
+	}, [language])
 
 	return (
 		<Router>
@@ -87,6 +111,8 @@ const App = () => {
 						setHeaderEnabled={setHeaderEnabled}
 						toggleTheme={toggleTheme}
 						toggleDebugEnabled={toggleDebugEnabled}
+						language={language}
+						setLanguage={setLanguage}
 					/>
 				</Route>
 				<Route path="/host">
@@ -100,6 +126,8 @@ const App = () => {
 						setHeaderEnabled={setHeaderEnabled}
 						toggleTheme={toggleTheme}
 						toggleDebugEnabled={toggleDebugEnabled}
+						language={language}
+						setLanguage={setLanguage}
 					/>
 				</Route>
 				<Route path="/">
@@ -116,6 +144,8 @@ const App = () => {
 						setHeaderEnabled={setHeaderEnabled}
 						toggleTheme={toggleTheme}
 						toggleDebugEnabled={toggleDebugEnabled}
+						language={language}
+						setLanguage={setLanguage}
 					/>
 				</Route>
 			</Switch>
