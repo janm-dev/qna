@@ -14,7 +14,8 @@ const Client = ({
 	setHeaderEnabled,
 	toggleTheme,
 	formEnabled,
-	setFormEnabled
+	setFormEnabled,
+	toggleDebugEnabled
 }: {
 	isHost?: boolean
 	code: string
@@ -24,6 +25,7 @@ const Client = ({
 	toggleTheme: () => unknown
 	formEnabled: boolean
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
+	toggleDebugEnabled: () => unknown
 }) => {
 	const [questions, setQuestions] = useState([] as QuestionInfo[])
 
@@ -109,6 +111,7 @@ const Client = ({
 				toggleTheme={toggleTheme}
 				formEnabled={formEnabled}
 				setFormEnabled={setFormEnabled}
+				toggleDebugEnabled={toggleDebugEnabled}
 			/>
 			{formEnabled ? null : <QuestionForm />}
 			<QuestionQueue questions={questions} isHost={isHost} />

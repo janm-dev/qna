@@ -27,6 +27,15 @@
 		margin: 0;
 		color: var(--fg-color);
 	}
+
+	.version {
+		font-size: 2rem;
+		grid-area: code;
+		text-align: end;
+		margin: auto 0;
+		color: var(--fg-color);
+		opacity: 0.5;
+	}
 }
 
 @media (max-width: 480px) {

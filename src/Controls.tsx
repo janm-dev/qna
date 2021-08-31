@@ -42,7 +42,8 @@ export const Controls = ({
 	setHeaderEnabled,
 	toggleTheme,
 	formEnabled,
-	setFormEnabled
+	setFormEnabled,
+	toggleDebugEnabled
 }: {
 	questionRelated: boolean
 	isHost?: boolean
@@ -52,6 +53,7 @@ export const Controls = ({
 	toggleTheme: () => unknown
 	formEnabled: boolean
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
+	toggleDebugEnabled: () => unknown
 }) => {
 	const t = translate.use().Controls
 
@@ -74,7 +76,7 @@ export const Controls = ({
 				setHeaderEnabled(!headerEnabled)
 				ev.preventDefault()
 			} else if (ev.key === "d" && ev.altKey) {
-				window.logger.enabled = !window.logger.enabled
+				toggleDebugEnabled()
 				ev.preventDefault()
 			} else if (ev.key === "t" && ev.altKey) {
 				toggleTheme()
@@ -98,7 +100,8 @@ export const Controls = ({
 		setHeaderEnabled,
 		toggleTheme,
 		formEnabled,
-		setFormEnabled
+		setFormEnabled,
+		toggleDebugEnabled
 	])
 
 	return (
@@ -131,7 +134,7 @@ export const Controls = ({
 				<button
 					className={shared.iconbutton}
 					onClick={() => {
-						window.logger.enabled = !window.logger.enabled
+						toggleDebugEnabled()
 					}}
 					title={t.debug}
 				>

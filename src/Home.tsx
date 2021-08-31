@@ -45,7 +45,8 @@ const Home = ({
 	setHeaderEnabled,
 	toggleTheme,
 	formEnabled,
-	setFormEnabled
+	setFormEnabled,
+	toggleDebugEnabled
 }: {
 	code: string
 	setCode: (newCode: string) => unknown
@@ -56,6 +57,7 @@ const Home = ({
 	toggleTheme: () => unknown
 	formEnabled: boolean
 	setFormEnabled: (newHeaderEnabled: boolean) => unknown
+	toggleDebugEnabled: () => unknown
 }) => {
 	const t = translate.use().Home
 
@@ -117,6 +119,7 @@ const Home = ({
 				toggleTheme={toggleTheme}
 				formEnabled={formEnabled}
 				setFormEnabled={setFormEnabled}
+				toggleDebugEnabled={toggleDebugEnabled}
 			/>
 
 			<section className={styles.infosection}>

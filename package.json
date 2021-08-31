@@ -1,7 +1,6 @@
 {
 	"name": "qna",
 	"description": "Cross-screen QnA question queue.",
-	"version": "1.0.0",
 	"private": true,
 	"license": "AGPL-3.0-or-later",
 	"dependencies": {
@@ -16,10 +15,12 @@
 	},
 	"devDependencies": {
 		"@types/node": "^16.6.1",
+		"@types/preval.macro": "^3.0.0",
 		"@types/react": "^17.0.18",
 		"@types/react-dom": "^17.0.9",
 		"@types/react-router-dom": "^5.1.8",
 		"@types/use-persisted-state": "^0.3.0",
+		"preval.macro": "^5.0.0",
 		"typescript": "^4.3.5"
 	},
 	"scripts": {

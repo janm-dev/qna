@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import createPersistedState from "use-persisted-state"
 import { DataTransport } from "./connection"
 import { useEffect, useState } from "react"
+import { buildVersion } from "."
 import Client from "./Client"
 import Home from "./Home"
 import styles from "./App.module.scss"
@@ -25,6 +26,7 @@ const App = () => {
 		(window.location.hash.slice(1).split("@")[1] as DataTransport) ||
 			DataTransport.BROADCASTCHANNEL
 	)
+	const [debugEnabled, _setDebugEnabled] = useState(window.logger.enabled)
 
 	const setCode = (newCode: string) => {
 		newCode = newCode.trim()
@@ -44,6 +46,11 @@ const App = () => {
 		}
 	}
 
+	const toggleDebugEnabled = () => {
+		window.logger.enabled = !window.logger.enabled
+		_setDebugEnabled(window.logger.enabled)
+	}
+
 	useEffect(() => {
 		if (window.location.pathname !== "/" && (!code || !dataTransport)) {
 			window.location.pathname = "/"
@@ -61,7 +68,11 @@ const App = () => {
 					<a className={styles.logolink} href="/">
 						<h1 className={styles.logo}>qna</h1>
 					</a>
-					<h2 className={styles.code}>{code}</h2>
+					{debugEnabled ? (
+						<h2 className={styles.version}>{buildVersion}</h2>
+					) : (
+						<h2 className={styles.code}>{code}</h2>
+					)}
 				</header>
 			) : null}
 
@@ -75,6 +86,7 @@ const App = () => {
 						headerEnabled={headerEnabled}
 						setHeaderEnabled={setHeaderEnabled}
 						toggleTheme={toggleTheme}
+						toggleDebugEnabled={toggleDebugEnabled}
 					/>
 				</Route>
 				<Route path="/host">
@@ -87,6 +99,7 @@ const App = () => {
 						headerEnabled={headerEnabled}
 						setHeaderEnabled={setHeaderEnabled}
 						toggleTheme={toggleTheme}
+						toggleDebugEnabled={toggleDebugEnabled}
 					/>
 				</Route>
 				<Route path="/">
@@ -102,6 +115,7 @@ const App = () => {
 						headerEnabled={headerEnabled}
 						setHeaderEnabled={setHeaderEnabled}
 						toggleTheme={toggleTheme}
+						toggleDebugEnabled={toggleDebugEnabled}
 					/>
 				</Route>
 			</Switch>
