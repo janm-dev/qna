@@ -87,7 +87,7 @@ const App = () => {
 
 	return (
 		<Router>
-			{!headerEnabled ? (
+			{headerEnabled ? (
 				<header className={styles.header}>
 					<a className={styles.logolink} href="/">
 						<h1 className={styles.logo}>qna</h1>
