@@ -219,10 +219,10 @@ const Home = ({
 			</section>
 			<div className={styles.source}>
 				<p className={styles.sourcetext}>{t.copy}</p>
-				<a href="https://github.com/janmml/qna">
+				<a href="https://github.com/janm-dev/qna">
 					<p className={styles.sourcetext}>{t.webapp}</p>
 				</a>
-				<a href="https://github.com/janmml/ws-relay">
+				<a href="https://github.com/janm-dev/ws-relay">
 					<p className={styles.sourcetext}>{t.server}</p>
 				</a>
 			</div>
