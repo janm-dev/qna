@@ -10,9 +10,9 @@ import styles from "./App.module.scss"
 
 export const themes = ["none", "light", "dark"]
 
-const useHeaderState = createPersistedState("headerEnabled")
-const useLanguageState = createPersistedState("language")
-const useThemeState = createPersistedState("theme")
+const useHeaderState = createPersistedState<boolean>("headerEnabled")
+const useLanguageState = createPersistedState<Language>("language")
+const useThemeState = createPersistedState<number>("theme")
 
 const App = () => {
 	const [theme, setTheme] = useThemeState(0)
@@ -60,7 +60,7 @@ const App = () => {
 		document.documentElement.lang = newLanguage
 		translate.setOptions({
 			language: newLanguage,
-			fallback
+			fallback,
 		})
 		_setLanguage(newLanguage)
 	}
@@ -81,7 +81,7 @@ const App = () => {
 		document.documentElement.lang = language
 		translate.setOptions({
 			language: language,
-			fallback
+			fallback,
 		})
 	}, [language])
 
