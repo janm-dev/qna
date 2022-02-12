@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import createPersistedState from "use-persisted-state"
 import translate, { Language } from "./translations"
 import { DataTransport } from "./connection"
@@ -86,12 +86,12 @@ const App = () => {
 	}, [language])
 
 	return (
-		<Router>
+		<BrowserRouter>
 			{headerEnabled ? (
 				<header className={styles.header}>
-					<a className={styles.logolink} href="/">
+					<Link className={styles.logolink} to="/">
 						<h1 className={styles.logo}>qna</h1>
-					</a>
+					</Link>
 					{debugEnabled ? (
 						<h2 className={styles.version}>{buildVersion}</h2>
 					) : (
@@ -100,56 +100,65 @@ const App = () => {
 				</header>
 			) : null}
 
-			<Switch>
-				<Route path="/connect">
-					<Client
-						code={code}
-						dataTransport={dataTransport}
-						formEnabled={formEnabled}
-						setFormEnabled={setFormEnabled}
-						headerEnabled={headerEnabled}
-						setHeaderEnabled={setHeaderEnabled}
-						toggleTheme={toggleTheme}
-						toggleDebugEnabled={toggleDebugEnabled}
-						language={language}
-						setLanguage={setLanguage}
-					/>
-				</Route>
-				<Route path="/host">
-					<Client
-						isHost
-						code={code}
-						dataTransport={dataTransport}
-						formEnabled={formEnabled}
-						setFormEnabled={setFormEnabled}
-						headerEnabled={headerEnabled}
-						setHeaderEnabled={setHeaderEnabled}
-						toggleTheme={toggleTheme}
-						toggleDebugEnabled={toggleDebugEnabled}
-						language={language}
-						setLanguage={setLanguage}
-					/>
-				</Route>
-				<Route path="/">
-					<Home
-						code={code}
-						setCode={(newCode: string) => {
-							setCode(newCode)
-						}}
-						dataTransport={dataTransport}
-						setDataTransport={setDataTransport}
-						formEnabled={formEnabled}
-						setFormEnabled={setFormEnabled}
-						headerEnabled={headerEnabled}
-						setHeaderEnabled={setHeaderEnabled}
-						toggleTheme={toggleTheme}
-						toggleDebugEnabled={toggleDebugEnabled}
-						language={language}
-						setLanguage={setLanguage}
-					/>
-				</Route>
-			</Switch>
-		</Router>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<Home
+							code={code}
+							setCode={(newCode: string) => {
+								setCode(newCode)
+							}}
+							dataTransport={dataTransport}
+							setDataTransport={setDataTransport}
+							formEnabled={formEnabled}
+							setFormEnabled={setFormEnabled}
+							headerEnabled={headerEnabled}
+							setHeaderEnabled={setHeaderEnabled}
+							toggleTheme={toggleTheme}
+							toggleDebugEnabled={toggleDebugEnabled}
+							language={language}
+							setLanguage={setLanguage}
+						/>
+					}
+				/>
+				<Route
+					path="/connect"
+					element={
+						<Client
+							code={code}
+							dataTransport={dataTransport}
+							formEnabled={formEnabled}
+							setFormEnabled={setFormEnabled}
+							headerEnabled={headerEnabled}
+							setHeaderEnabled={setHeaderEnabled}
+							toggleTheme={toggleTheme}
+							toggleDebugEnabled={toggleDebugEnabled}
+							language={language}
+							setLanguage={setLanguage}
+						/>
+					}
+				/>
+				<Route
+					path="/host"
+					element={
+						<Client
+							isHost
+							code={code}
+							dataTransport={dataTransport}
+							formEnabled={formEnabled}
+							setFormEnabled={setFormEnabled}
+							headerEnabled={headerEnabled}
+							setHeaderEnabled={setHeaderEnabled}
+							toggleTheme={toggleTheme}
+							toggleDebugEnabled={toggleDebugEnabled}
+							language={language}
+							setLanguage={setLanguage}
+						/>
+					}
+				/>
+			</Routes>
+		</BrowserRouter>
 	)
 }
 
