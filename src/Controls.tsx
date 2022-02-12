@@ -12,7 +12,7 @@ import shared from "./shared.module.scss"
 
 const LanguageSelect = ({
 	language,
-	setLanguage
+	setLanguage,
 }: {
 	language: Language
 	setLanguage: (newLanguage: Language) => unknown
@@ -44,7 +44,7 @@ export const Controls = ({
 	setFormEnabled,
 	toggleDebugEnabled,
 	language,
-	setLanguage
+	setLanguage,
 }: {
 	questionRelated: boolean
 	isHost?: boolean
@@ -91,7 +91,7 @@ export const Controls = ({
 		}
 
 		document.addEventListener("keydown", listener, {
-			signal: controller.signal
+			signal: controller.signal,
 		} as unknown as AddEventListenerOptions)
 
 		return () => {
@@ -104,7 +104,7 @@ export const Controls = ({
 		toggleTheme,
 		formEnabled,
 		setFormEnabled,
-		toggleDebugEnabled
+		toggleDebugEnabled,
 	])
 
 	return (

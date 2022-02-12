@@ -4,7 +4,7 @@ import { ID } from "./index"
 
 export enum DataTransport {
 	BROADCASTCHANNEL = "b",
-	WEBSOCKET = "s"
+	WEBSOCKET = "s",
 }
 
 export const navigate = (
@@ -64,7 +64,7 @@ class Connection extends EventEmitter {
 
 			this._send({
 				type: "connection",
-				content: this.isHost ? "host" : "client"
+				content: this.isHost ? "host" : "client",
 			})
 		}
 	}
@@ -75,7 +75,7 @@ class Connection extends EventEmitter {
 
 			this._send({
 				type: "disconnection",
-				content: this.isHost ? "host" : "client"
+				content: this.isHost ? "host" : "client",
 			})
 
 			this.code = ""

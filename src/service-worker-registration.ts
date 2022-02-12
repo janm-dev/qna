@@ -29,7 +29,7 @@ const sw = {
 					window.logger.warn(`SW: installation failed: ${err}`)
 				})
 		})
-	}
+	},
 }
 
 export default sw

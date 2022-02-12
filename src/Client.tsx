@@ -18,7 +18,7 @@ const Client = ({
 	setFormEnabled,
 	toggleDebugEnabled,
 	language,
-	setLanguage
+	setLanguage,
 }: {
 	isHost?: boolean
 	code: string
@@ -57,7 +57,7 @@ const Client = ({
 					setQuestions([
 						...questions.filter(
 							(question) => question.id !== data.content.id
-						)
+						),
 					])
 					break
 
@@ -76,8 +76,9 @@ const Client = ({
 						),
 						{
 							...votedQuestion,
-							score: votedQuestion.score + data.content.voteAmount
-						}
+							score:
+								votedQuestion.score + data.content.voteAmount,
+						},
 					])
 					break
 
@@ -91,7 +92,7 @@ const Client = ({
 					if (isHost) {
 						connection.send({
 							type: "sync",
-							content: questions
+							content: questions,
 						})
 					}
 					break

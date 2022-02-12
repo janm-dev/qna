@@ -58,7 +58,7 @@ const translate = createTranslations<TranslationLanguages>()(
 	mappedTranslations,
 	{
 		language: "en",
-		fallback
+		fallback,
 	}
 )
 

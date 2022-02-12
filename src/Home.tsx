@@ -14,7 +14,7 @@ const symbols = "01234567890123456789abcdefghijklmnopqrstuvwxyz"
 
 const TransportSelect = ({
 	dataTransport,
-	setDataTransport
+	setDataTransport,
 }: {
 	dataTransport: DataTransport
 	setDataTransport: (newDataTransport: DataTransport) => unknown
@@ -48,7 +48,7 @@ const Home = ({
 	setFormEnabled,
 	toggleDebugEnabled,
 	language,
-	setLanguage
+	setLanguage,
 }: {
 	code: string
 	setCode: (newCode: string) => unknown
@@ -72,7 +72,7 @@ const Home = ({
 			new Uint8Array(
 				dataTransport === DataTransport.BROADCASTCHANNEL ? 4 : 9
 			)
-		)
+		),
 	]
 		.map((num) => symbols[num % symbols.length])
 		.join("")
