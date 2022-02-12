@@ -31,7 +31,7 @@ export const QuestionForm = () => {
 	const send = () => {
 		connection.send({
 			type: "new",
-			content: { id: nanoid(), author, text, score }
+			content: { id: nanoid(), author, text, score },
 		})
 
 		clear()

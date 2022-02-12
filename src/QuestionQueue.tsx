@@ -6,7 +6,7 @@ import styles from "./QuestionQueue.module.scss"
 
 export const QuestionQueue = ({
 	questions,
-	isHost = false
+	isHost = false,
 }: {
 	questions: QuestionInfo[]
 	isHost?: boolean
@@ -40,7 +40,7 @@ export const QuestionQueue = ({
 		}
 
 		document.addEventListener("keydown", listener, {
-			signal: controller.signal
+			signal: controller.signal,
 		} as unknown as AddEventListenerOptions)
 
 		return () => {
@@ -55,7 +55,7 @@ export const QuestionQueue = ({
 	const downCallback = (id: ID) => {
 		connection.send({
 			type: "vote",
-			content: { id, voteAmount: -1 }
+			content: { id, voteAmount: -1 },
 		})
 	}
 

@@ -28,7 +28,7 @@ const cachedPaths = [
 	{ url: "/fonts/roboto-bold.woff2", revision: "0" },
 	{ url: "/fonts/roboto-italic.woff2", revision: "0" },
 	{ url: "/fonts/roboto-mono.woff2", revision: "0" },
-	{ url: "/fonts/roboto.woff2", revision: "0" }
+	{ url: "/fonts/roboto.woff2", revision: "0" },
 ]
 
 precacheAndRoute(self.__WB_MANIFEST, { cleanURLs: true })
@@ -45,7 +45,7 @@ registerRoute(({ request }: { request: Request; url: URL }) => {
 registerRoute(
 	({ url }) => url.origin === self.location.origin,
 	new StaleWhileRevalidate({
-		cacheName: "runtime"
+		cacheName: "runtime",
 	})
 )
 
